@@ -1,0 +1,73 @@
+openapi: 3.0.3
+info:
+  title: Swagger Composer API - OpenAPI 3.0
+  description: >-
+    This is a Composer API Server based on the OpenAPI 3.0 specification.
+  version: 1.0.0
+tags:
+  - name: Composers
+paths:
+  /composers:
+    get:
+      summary: Finds all composers
+      responses:
+        '200':
+          description: A JSON array of composers
+        '500':
+          description: Server Exception
+        '501':
+          description: MongoDB Exception
+      tags:
+        - Composers
+    post:
+      summary: Create composers
+      requestBody:
+        description: Create a new composer
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Composer'      
+      responses:
+        '200':
+          description: Composer Added
+        '500':
+          description: Server Exception
+        '501':
+          description: MongoDB Exception
+      tags: 
+        - Composers
+  /composers/{id}:
+    get:
+      summary: Finds composers by id
+      parameters:
+        - name: id
+          in: path
+          description: Id of composer
+          required: true
+          schema: 
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Return a single composer
+        '500':
+          description: Server Exception
+        '501':
+          description: MongoDB Exception
+      tags:
+        - Composers
+components:
+  schemas:
+    Composer:
+      required: 
+        - firstName
+        - lastName
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: Johann 
+        lastName:
+          type: string
+          example: Bach 

@@ -3,7 +3,7 @@
 ; Title:  reyes-composer-routes.js
 ; Author: Tiffany Reyes
 ; Date:   17 June 2023
-; Description: Composer API
+; Description: Composer API routes
 ;===========================================
 */
 

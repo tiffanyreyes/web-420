@@ -27,7 +27,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Composer'      
+              $ref: '#/components/schemas/Composer'
       responses:
         '200':
           description: Composer Added
@@ -57,17 +57,16 @@ paths:
           description: MongoDB Exception
       tags:
         - Composers
+
 components:
   schemas:
     Composer:
-      required: 
-        - firstName
-        - lastName
       type: object
       properties:
         firstName:
           type: string
-          example: Johann 
         lastName:
           type: string
-          example: Bach 
+      required: 
+        - firstName
+        - lastName

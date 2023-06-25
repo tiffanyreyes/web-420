@@ -1,8 +1,18 @@
+/*
+============================================
+; Title:  app.js
+; Author: Tiffany Reyes
+; Date:   20 June 2023
+; Description: Entry point and express js configuration
+;===========================================
+*/
+
 const express = require('express');
 const http = require('http');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
 const ComposerAPI = require('./routes/reyes-composer-routes');
+const PersonAPI = require('./routes/reyes-person-routes');
 const mongoose = require('mongoose');
 
 const app = express();
@@ -33,6 +43,7 @@ const openapiSpecification = swaggerJsdoc(options);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 app.use('/api', ComposerAPI);
+app.use('/api', PersonAPI);
 
 const server = http.createServer(app);
 server.listen(PORT, () => {

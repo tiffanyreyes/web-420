@@ -81,7 +81,7 @@ router.get('/persons', async(req, res) => {
  */
 router.post('/persons', async(req, res) => {
     try {
-        const person = {
+        const newPerson = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             roles: req.body.roles,
@@ -89,7 +89,7 @@ router.post('/persons', async(req, res) => {
             birthDate: req.body.birthDate
         }
 
-        await Person.create(person)
+        await Person.create(newPerson)
             .then((person) => {
                 console.log(person);
                 res.json(person);

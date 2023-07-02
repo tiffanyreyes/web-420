@@ -67,10 +67,37 @@ router.get('/persons', async(req, res) => {
  *         application/json:
  *           schema:
  *             required:
- *               - type
+ *               - firstName
+ *               - lastName
+ *               - roles
+ *               - dependents
+ *               - birthDate
  *             properties:
- *               type:
+ *               firstName:
  *                 type: string
+ *               lastName:
+ *                 type: string
+ *               roles:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *               dependents:
+ *                 type: array
+ *                 items:
+ *                   type: object
+ *                   properties:
+ *                     firstName:
+ *                       type: string
+ *                     lastName:
+ *                       type: string
+ *               birthDate:
+ *                 type: string
+ *             example:
+ *               firstName: George
+ *               lastName: Washington
+ *               roles: ["Admin"]
+ *               dependents: [{firstName: "John", lastName: "Adams"}]
+ *               birthDate: 2/22/1732
  *     responses:
  *       '200':
  *         description: Person added

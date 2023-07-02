@@ -112,10 +112,16 @@ router.get('/composers/:id', async(req, res) => {
  *         application/json:
  *           schema:
  *             required:
- *               - type
+ *               - firstName
+ *               - lastName
  *             properties:
- *               type:
+ *               firstName:
  *                 type: string
+ *               lastName:
+ *                 type: string
+ *             example:
+ *               firstName: Johann
+ *               lastName: Bach
  *     responses:
  *       '200':
  *         description: Composer added

@@ -14,6 +14,7 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const ComposerAPI = require('./routes/reyes-composer-routes');
 const PersonAPI = require('./routes/reyes-person-routes');
 const SessionAPI = require('./routes/reyes-session-routes');
+const ShopperAPI = require('./routes/reyes-node-shopper-routes');
 const mongoose = require('mongoose');
 
 const app = express();
@@ -46,6 +47,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 app.use('/api', ComposerAPI);
 app.use('/api', PersonAPI);
 app.use('/api', SessionAPI);
+app.use('/api', ShopperAPI);
 
 const server = http.createServer(app);
 server.listen(PORT, () => {

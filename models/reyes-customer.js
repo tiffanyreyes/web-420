@@ -53,7 +53,7 @@ const invoiceSchema = new Schema({
     }
  });
 
- // A mongoose invoice schema
+ // A mongoose customer schema
 
 const customerSchema = new Schema({
     firstName: {

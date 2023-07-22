@@ -51,6 +51,10 @@ app.use('/api', SessionAPI);
 app.use('/api', ShopperAPI);
 app.use('/api', TeamAPI);
 
+app.get('', function(req, res) {
+    res.redirect('/api-docs');
+});
+
 const server = http.createServer(app);
 server.listen(PORT, () => {
     console.log('Application started and listening on port 3000.')
